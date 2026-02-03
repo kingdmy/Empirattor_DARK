@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bc6q8jayxica6" path="res://images/idle_3Emp.png" id="4_oa7qk"]
 [ext_resource type="PackedScene" uid="uid://ds3ebl5d1vfng" path="res://scenes/npc.tscn" id="5_wy0bs"]
 [ext_resource type="PackedScene" uid="uid://2csj0amg7sc0" path="res://scenes/quest_journal_ui.tscn" id="6_emumq"]
+[ext_resource type="PackedScene" uid="uid://ddabfvdm7jb4k" path="res://scenes/ant.tscn" id="9_wj2hs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uoqbt"]
 size = Vector2(24, 21)
@@ -26,7 +27,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 3.0
+"speed": 2.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43o5b"]
@@ -3302,6 +3303,9 @@ shape = SubResource("RectangleShape2D_3etub")
 position = Vector2(442, 8)
 
 [node name="QuestJournalUi" parent="." unique_id=736864468 instance=ExtResource("6_emumq")]
+
+[node name="Ant" parent="." unique_id=1089633665 instance=ExtResource("9_wj2hs")]
+position = Vector2(-1065, 20)
 
 [connection signal="interaction_started" from="Npc" to="QuestJournalUi" method="show_journal"]
 [connection signal="dialogue_finished" from="QuestJournalUi" to="Npc" method="reset_dialogue"]

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://ddabfvdm7jb4k"]
+
+[ext_resource type="Texture2D" uid="uid://caidovm5xbldw" path="res://images/ant1.png" id="1_4s44o"]
+[ext_resource type="Script" uid="uid://d35ommocuk64q" path="res://scenes/ant.gd" id="1_acg2n"]
+[ext_resource type="Texture2D" uid="uid://dufcxwtnfgufy" path="res://images/ant idle1.png" id="2_4guct"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4guct"]
+size = Vector2(29, 51)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_acg2n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4s44o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4guct")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="Ant" type="Area2D" unique_id=1089633665]
+script = ExtResource("1_acg2n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1820288377]
+position = Vector2(3.5, -12.5)
+shape = SubResource("RectangleShape2D_4guct")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1109048435]
+position = Vector2(23, -5)
+scale = Vector2(1.36, 1.22)
+sprite_frames = SubResource("SpriteFrames_acg2n")
+animation = &"idle"
+frame_progress = 0.49117297
