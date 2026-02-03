@@ -6,8 +6,10 @@
 script = ExtResource("1_vua4u")
 
 [node name="Panel" type="Panel" parent="." unique_id=879272976]
-offset_right = 788.0
-offset_bottom = 226.0
+offset_left = 176.0
+offset_top = 86.0
+offset_right = 964.0
+offset_bottom = 312.0
 
 [node name="DialogueLabel" type="Label" parent="Panel" unique_id=1105301692]
 layout_mode = 0
@@ -25,17 +27,17 @@ offset_bottom = 68.0
 
 [node name="CloseButton" type="Button" parent="Panel" unique_id=1166420882]
 layout_mode = 0
-offset_left = 755.0
-offset_top = 195.0
-offset_right = 783.0
-offset_bottom = 220.0
+offset_left = 759.0
+offset_top = 2.0
+offset_right = 787.0
+offset_bottom = 27.0
 
 [node name="ContinueLabel" type="Label" parent="Panel" unique_id=153948929]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 202.0
-offset_right = 70.0
-offset_bottom = 225.0
+offset_left = 330.0
+offset_top = 197.0
+offset_right = 455.0
+offset_bottom = 220.0
 text = "[E] продолжить"
 
 [connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]

@@ -62,7 +62,7 @@ func update_facing():
 	if not player_ref:
 		return
 	
-	var sprite = $Sprite2D
+	var sprite = $AnimatedSprite2D
 	if not sprite:
 		return
 	

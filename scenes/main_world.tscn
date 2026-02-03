@@ -53055,7 +53055,7 @@ position = Vector2(442, 8)
 [node name="QuestJournalUi" parent="." unique_id=736864468 instance=ExtResource("6_emumq")]
 
 [node name="Ant" parent="." unique_id=1089633665 instance=ExtResource("9_wj2hs")]
-position = Vector2(-475, 21)
+position = Vector2(178, 21)
 
 [connection signal="interaction_started" from="Npc" to="QuestJournalUi" method="show_journal"]
 [connection signal="dialogue_finished" from="QuestJournalUi" to="Npc" method="reset_dialogue"]
