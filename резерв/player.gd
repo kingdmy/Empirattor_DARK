@@ -6,7 +6,7 @@ var jump_force = -200
 var gravity = 1000
 
 func _ready():
-	
+	add_to_group("player")  # ← вот эта строка!
 	# Запускаем idle-анимацию при старте
 	if animated_sprite:
 		animated_sprite.play("idle")

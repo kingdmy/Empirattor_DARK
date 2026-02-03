@@ -1,7 +1,7 @@
 extends Area2D
 
 signal interaction_started(dialogue_data)
-
+@onready var animated_sprite = $AnimatedSprite2D
 @export var dialogue_lines: Array[String] = [
 	"Привет, путник.",
 	"Ты в потерянном мире.",
@@ -15,8 +15,13 @@ var player_ref = null
 @onready var e_indicator = $EIndicator  # Ссылка на Label
 
 func _ready():
+	if animated_sprite:
+		animated_sprite.play("idle")
+		
+		
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
+	
 	
 	# Скрываем индикатор при старте
 	if e_indicator:
