@@ -16,3 +16,11 @@ texture = ExtResource("1_nh2m4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1413799432]
 position = Vector2(-1.5, -9)
 shape = SubResource("RectangleShape2D_nh2m4")
+
+[node name="EIndicator" type="Label" parent="." unique_id=62196999]
+offset_left = -5.0
+offset_top = -66.0
+offset_right = 4.0
+offset_bottom = -43.0
+scale = Vector2(0.9600024, 0.71999997)
+text = "E"

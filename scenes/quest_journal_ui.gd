@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal dialogue_finished
+
 @onready var name_label = $Panel/NameLabel
 @onready var dialogue_label = $Panel/DialogueLabel
 @onready var panel = $Panel
@@ -27,9 +29,11 @@ func _ready():
 	hide_journal()
 
 func show_journal(dialogue_data):
+	current_line_index = 0
+	is_typing = false
+	type_timer.stop()
 	name_label.text = dialogue_data["npc_name"]
 	dialogue_lines = dialogue_data["lines"]
-	current_line_index = 0
 	dialogue_label.text = ""
 	
 	panel.visible = true
@@ -62,7 +66,8 @@ func hide_journal():
 	current_line_index = 0
 	is_typing = false
 	type_timer.stop()
-	continue_label.visible = false  # Скрываем подсказку при закрытии
+	continue_label.visible = false
+	dialogue_finished.emit()  # Скрываем подсказку при закрытии
 
 func _process(delta):
 	if not panel.visible:

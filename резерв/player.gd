@@ -1,8 +1,15 @@
 extends CharacterBody2D
 
+@onready var animated_sprite = $AnimatedSprite2D
 var speed = 200
 var jump_force = -200
 var gravity = 1000
+
+func _ready():
+	
+	# Запускаем idle-анимацию при старте
+	if animated_sprite:
+		animated_sprite.play("idle")
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -24,5 +31,5 @@ func _physics_process(delta):
 		
 	if velocity.x != 0:
 		var direction = sign(velocity.x)
-		$Sprite2D.scale.x = direction
+		$AnimatedSprite2D.scale.x = direction
 	move_and_slide()

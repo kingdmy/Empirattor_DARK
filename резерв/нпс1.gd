@@ -8,7 +8,7 @@ signal interaction_started(dialogue_data)
 	"Это не лучшее место..."
 ]
 @export var npc_name = "Хранитель"
-var is_in_dialogue = false
+
 var player_in_range = false
 var player_ref = null
 
@@ -37,16 +37,20 @@ func _on_body_exited(body):
 	if body.name == "Player" or body.is_in_group("player"):
 		player_in_range = false
 		player_ref = null
-		is_in_dialogue = false  # Сбрасываем флаг
 		
+		# СКРЫВАЕМ индикатор [E]
 		if e_indicator:
 			e_indicator.visible = false
+			print("NPC: Скрываю индикатор [E]")
 
 func _process(delta):
 	# ПОВОРОТ
-	if player_in_range and Input.is_action_just_pressed("interact") and not is_in_dialogue:
-		print("NPC: Начинаю диалог")
-		is_in_dialogue = true  # Блокируем повторные вызовы
+	if player_in_range and player_ref:
+		update_facing()
+	
+	# ДИАЛОГ
+	if player_in_range and Input.is_action_just_pressed("interact"):
+		print("NPC: Кнопка E нажата, отправляю сигнал")
 		var dialogue_data = {
 			"npc_name": npc_name,
 			"lines": dialogue_lines
@@ -65,8 +69,3 @@ func update_facing():
 		sprite.scale.x = -1.0
 	else:
 		sprite.scale.x = 1.0
-
-
-func reset_dialogue():
-	is_in_dialogue = false
-	print("NPC: Диалог сброшен, можно начинать заново")

@@ -1,14 +1,33 @@
 [gd_scene format=3 uid="uid://bjayjdpt4tx2r"]
 
-[ext_resource type="Script" uid="uid://dl3i8ir24wxk8" path="res://scenes/player.gd" id="1_bdp8l"]
-[ext_resource type="Texture2D" uid="uid://c8cotue8nc4p6" path="res://images/pixil-frame-0.png" id="2_jj0au"]
+[ext_resource type="Script" uid="uid://dwta038jb7iqm" path="res://резерв/player.gd" id="1_5irk3"]
+[ext_resource type="Texture2D" uid="uid://hjvkawhjbcbq" path="res://images/idle_1Emp.png" id="2_5irk3"]
+[ext_resource type="Texture2D" uid="uid://co1j57btfjs0c" path="res://images/idle_2Emp.png" id="3_wj2hs"]
 [ext_resource type="Texture2D" uid="uid://c7f1ei1af4cbq" path="res://images/pixil-frame-0(2).png" id="3_wy0bs"]
 [ext_resource type="Texture2D" uid="uid://dessoigcdb2xy" path="res://images/pixil-frame-0(1).png" id="4_emumq"]
+[ext_resource type="Texture2D" uid="uid://bc6q8jayxica6" path="res://images/idle_3Emp.png" id="4_oa7qk"]
 [ext_resource type="PackedScene" uid="uid://ds3ebl5d1vfng" path="res://scenes/npc.tscn" id="5_wy0bs"]
 [ext_resource type="PackedScene" uid="uid://2csj0amg7sc0" path="res://scenes/quest_journal_ui.tscn" id="6_emumq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uoqbt"]
 size = Vector2(24, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bokwj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5irk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wj2hs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oa7qk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43o5b"]
 size = Vector2(1744, 20)
@@ -22,11 +41,7 @@ size = Vector2(2308, 129)
 
 [node name="Player" type="CharacterBody2D" parent="Node2D" unique_id=1649009952]
 position = Vector2(112, 38)
-script = ExtResource("1_bdp8l")
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Player" unique_id=1439133773]
-position = Vector2(6, -1)
-texture = ExtResource("2_jj0au")
+script = ExtResource("1_5irk3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Player" unique_id=2033298689]
 position = Vector2(3, -15.5)
@@ -35,6 +50,12 @@ shape = SubResource("RectangleShape2D_uoqbt")
 [node name="Camera2D" type="Camera2D" parent="Node2D/Player" unique_id=830710320]
 position = Vector2(-9, -46)
 zoom = Vector2(2, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D/Player" unique_id=2107109094]
+position = Vector2(7, -2)
+sprite_frames = SubResource("SpriteFrames_bokwj")
+animation = &"idle"
+frame_progress = 0.4045952
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node2D" unique_id=1370012850]
 
@@ -3283,3 +3304,4 @@ position = Vector2(442, 8)
 [node name="QuestJournalUi" parent="." unique_id=736864468 instance=ExtResource("6_emumq")]
 
 [connection signal="interaction_started" from="Npc" to="QuestJournalUi" method="show_journal"]
+[connection signal="dialogue_finished" from="QuestJournalUi" to="Npc" method="reset_dialogue"]
