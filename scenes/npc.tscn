@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ds3ebl5d1vfng"]
+
+[ext_resource type="Script" uid="uid://bm4inqajyg48m" path="res://scenes/area_2d.gd" id="1_abqhh"]
+[ext_resource type="Texture2D" uid="uid://bnjdm7oupxrio" path="res://images/pixil-frame-0(3).png" id="1_nh2m4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nh2m4"]
+size = Vector2(41, 68)
+
+[node name="Npc" type="Area2D" unique_id=1832806927]
+script = ExtResource("1_abqhh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1957142039]
+position = Vector2(7, 6)
+texture = ExtResource("1_nh2m4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1413799432]
+position = Vector2(-1.5, -9)
+shape = SubResource("RectangleShape2D_nh2m4")

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://2csj0amg7sc0"]
+
+[ext_resource type="Script" uid="uid://654rrb5uward" path="res://scenes/quest_journal_ui.gd" id="1_vua4u"]
+
+[node name="QuestJournalUi" type="CanvasLayer" unique_id=787795364]
+script = ExtResource("1_vua4u")
+
+[node name="Panel" type="Panel" parent="." unique_id=879272976]
+offset_right = 788.0
+offset_bottom = 226.0
+
+[node name="DialogueLabel" type="Label" parent="Panel" unique_id=1105301692]
+layout_mode = 0
+offset_top = 71.0
+offset_right = 786.0
+offset_bottom = 179.0
+autowrap_mode = 3
+
+[node name="NameLabel" type="Label" parent="Panel" unique_id=1151435732]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 789.0
+offset_bottom = 68.0
+
+[node name="CloseButton" type="Button" parent="Panel" unique_id=1166420882]
+layout_mode = 0
+offset_left = 755.0
+offset_top = 195.0
+offset_right = 783.0
+offset_bottom = 220.0
+
+[node name="ContinueLabel" type="Label" parent="Panel" unique_id=153948929]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 202.0
+offset_right = 70.0
+offset_bottom = 225.0
+text = "[E] продолжить"
+
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
